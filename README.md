@@ -1,6 +1,12 @@
 # Motor-Mayhem
 A small game project for the AUB CMPS 297V course
 
+[Authors](#authors)
+
+[Technologies](#technologies)
+
+[Assets](#assets)
+
 ## Authors
 
 - Marwan Bassam
