@@ -29,7 +29,6 @@ public class MoveNavAgent : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 //navAgent.destination = hit.point;
-                Debug.Log(hit.point);
                 navAgent.SetDestination(hit.point);
             }
         }

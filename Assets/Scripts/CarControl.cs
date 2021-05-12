@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,19 +7,11 @@ public class CarControl : MonoBehaviour
 {
     public float speed = 2000.0f;
     public float maxRotationAngle = 30.0f;
-    public float bouncinessForce = 2;
 
     public List<Collider> throttleWheels;
     public List<Collider> steeringWheels;
 
-    private Rigidbody rb;
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         Throttle();
         Steer();
@@ -44,17 +35,6 @@ public class CarControl : MonoBehaviour
 
             // rotate wheel models:
             wheel.transform.localEulerAngles = new Vector3(0, dx * maxRotationAngle, 0);
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        // simulate the bouciness effect:
-        if (!collision.gameObject.CompareTag("Ground"))
-        {
-            float impactForce = collision.impulse.magnitude;
-            Vector3 normal = collision.contacts[0].normal;
-            rb.AddForce(normal * impactForce * this.bouncinessForce);
         }
     }
 }
