@@ -5,11 +5,31 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class CarControl : MonoBehaviour
 {
-    public float speed = 2000.0f;
-    public float maxRotationAngle = 30.0f;
+    public float speed = 1500.0f;
+    public float maxRotationAngle = 15.0f;
 
     public List<Collider> throttleWheels;
     public List<Collider> steeringWheels;
+    private bool canSheild;
+    private bool canBoost;
+    private float cdTimeBoost;
+    private float cdTimeSheild;
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) && canBoost)
+        {
+            Debug.Log("Boost");
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.Mouse1) && canSheild)
+        {
+            Debug.Log("Sheild");
+        }
+    }
+
 
     private void FixedUpdate()
     {
