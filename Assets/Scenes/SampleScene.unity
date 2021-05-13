@@ -690,10 +690,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 835719599102175054, guid: c4b50e8149ed83f459a1077cd8c22c76, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1553130147491568982, guid: c4b50e8149ed83f459a1077cd8c22c76, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -754,34 +750,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CarPlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 3040130930517382242, guid: c4b50e8149ed83f459a1077cd8c22c76, type: 3}
-      propertyPath: m_Drag
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3040130930517382242, guid: c4b50e8149ed83f459a1077cd8c22c76, type: 3}
-      propertyPath: m_Mass
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 3040130930517382242, guid: c4b50e8149ed83f459a1077cd8c22c76, type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3040130930517382242, guid: c4b50e8149ed83f459a1077cd8c22c76, type: 3}
-      propertyPath: m_Interpolate
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3040130930517382242, guid: c4b50e8149ed83f459a1077cd8c22c76, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4615355812445241003, guid: c4b50e8149ed83f459a1077cd8c22c76, type: 3}
-      propertyPath: speed
-      value: 1500
-      objectReference: {fileID: 0}
-    - target: {fileID: 4615355812445241003, guid: c4b50e8149ed83f459a1077cd8c22c76, type: 3}
-      propertyPath: maxRotationAngle
-      value: 15
-      objectReference: {fileID: 0}
+      propertyPath: ABILITY
+      value: 
+      objectReference: {fileID: 770765326}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4b50e8149ed83f459a1077cd8c22c76, type: 3}
 --- !u!4 &658194541 stripped
@@ -789,6 +761,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1553130147491568982, guid: c4b50e8149ed83f459a1077cd8c22c76, type: 3}
   m_PrefabInstance: {fileID: 579828670}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &770765326 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5196763621921859903, guid: c4b50e8149ed83f459a1077cd8c22c76, type: 3}
+  m_PrefabInstance: {fileID: 579828670}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bd6dbaa54d82524aa34316dc2f5828e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

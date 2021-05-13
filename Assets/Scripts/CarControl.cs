@@ -10,23 +10,19 @@ public class CarControl : MonoBehaviour
 
     public List<Collider> throttleWheels;
     public List<Collider> steeringWheels;
-    private bool canSheild;
-    private bool canBoost;
-    private float cdTimeBoost;
-    private float cdTimeSheild;
+
 
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) && canBoost)
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Debug.Log("Boost");
-
+            GetComponent<Abilities>().Boost();
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.Mouse1) && canSheild)
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.Mouse1))
         {
-            Debug.Log("Sheild");
+            GetComponent<Abilities>().Shield();
         }
     }
 
@@ -39,6 +35,7 @@ public class CarControl : MonoBehaviour
 
     private void Throttle()
     {
+            
         float dy = Input.GetAxis("Vertical");
         foreach (WheelCollider wheel in throttleWheels)
         {
