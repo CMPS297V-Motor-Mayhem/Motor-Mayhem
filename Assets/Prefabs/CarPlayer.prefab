@@ -235,8 +235,8 @@ GameObject:
   - component: {fileID: 1553130147491568982}
   - component: {fileID: 117612417337575194}
   - component: {fileID: 3040130930517382242}
-  - component: {fileID: 4615355812445241003}
   - component: {fileID: 835719599102175054}
+  - component: {fileID: 4615355812445241003}
   m_Layer: 0
   m_Name: CarPlayer
   m_TagString: Player
@@ -289,6 +289,19 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &835719599102175054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2582403697308446533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb55079349634346879aba592700a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bouncinessForce: 2
 --- !u!114 &4615355812445241003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,19 +324,6 @@ MonoBehaviour:
   steeringWheels:
   - {fileID: 5361164001419169439}
   - {fileID: 2116915109039245310}
---- !u!114 &835719599102175054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2582403697308446533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cb55079349634346879aba592700a7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bouncinessForce: 2
 --- !u!1 &2871202120529353747
 GameObject:
   m_ObjectHideFlags: 0
