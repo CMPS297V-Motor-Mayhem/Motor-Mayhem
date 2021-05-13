@@ -17,12 +17,13 @@ public class CarControl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
         {
-            GetComponent<Abilities>().Boost();
+            Debug.Log("Called");
+            StartCoroutine(GetComponent<Abilities>().Boost());
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.Mouse1))
         {
-            GetComponent<Abilities>().Shield();
+            StartCoroutine(GetComponent<Abilities>().Shield());
         }
     }
 

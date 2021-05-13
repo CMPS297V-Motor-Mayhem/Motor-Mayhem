@@ -8,7 +8,7 @@ public class Abilities : MonoBehaviour
     public  IEnumerator Boost()
     {
         CarControl carControl = this.GetComponent<CarControl>();
-        carControl.speed = 1000000000000;
+        carControl.speed = 10000000000000000000;
         Debug.Log("Boost over 90000000000");
         //Boost for 2 second
         yield return new WaitForSeconds(2f);
