@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class CarControl : MonoBehaviour
 {
-    public float speed = 1500.0f;
+    public long speed = 1500;
     public float maxRotationAngle = 15.0f;
 
     public List<Collider> throttleWheels;
