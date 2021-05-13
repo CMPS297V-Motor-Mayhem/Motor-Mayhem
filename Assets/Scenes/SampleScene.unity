@@ -485,7 +485,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 297848113}
-  m_LocalRotation: {x: 0.25318253, y: -0.000000008322886, z: 0.0000000021781772, w: 0.96741855}
+  m_LocalRotation: {x: 0.25318253, y: 0.000000008322886, z: -0.0000000021781772, w: 0.96741855}
   m_LocalPosition: {x: -2, y: 2.781, z: -0.945}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -754,6 +754,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CarPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 2582403697308446533, guid: c4b50e8149ed83f459a1077cd8c22c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3040130930517382242, guid: c4b50e8149ed83f459a1077cd8c22c76, type: 3}
       propertyPath: m_Drag
       value: 0.75
@@ -866,7 +870,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.25318253, y: -0.000000008322886, z: 0.0000000021781772, w: 0.96741855}
+  m_LocalRotation: {x: 0.25318253, y: 0.000000008322886, z: -0.0000000021781772, w: 0.96741855}
   m_LocalPosition: {x: -2, y: 2.781, z: -0.945}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1302,6 +1306,10 @@ PrefabInstance:
     - target: {fileID: 3906352497839756119, guid: 6735df75a9bb0194b8396d88ae1e641e, type: 3}
       propertyPath: m_Name
       value: AiPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906352497839756119, guid: 6735df75a9bb0194b8396d88ae1e641e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4598204237244131440, guid: 6735df75a9bb0194b8396d88ae1e641e, type: 3}
       propertyPath: m_Drag
