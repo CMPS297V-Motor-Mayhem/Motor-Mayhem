@@ -5,28 +5,25 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class CarControl : MonoBehaviour
 {
-    public float speed = 1500.0f;
+    public long speed = 1500;
     public float maxRotationAngle = 15.0f;
 
     public List<Collider> throttleWheels;
     public List<Collider> steeringWheels;
-    private bool canSheild;
-    private bool canBoost;
-    private float cdTimeBoost;
-    private float cdTimeSheild;
+
 
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) && canBoost)
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Debug.Log("Boost");
-
+            Debug.Log("Called");
+            StartCoroutine(GetComponent<Abilities>().Boost());
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.Mouse1) && canSheild)
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.Mouse1))
         {
-            Debug.Log("Sheild");
+            StartCoroutine(GetComponent<Abilities>().Shield());
         }
     }
 
@@ -39,6 +36,7 @@ public class CarControl : MonoBehaviour
 
     private void Throttle()
     {
+            
         float dy = Input.GetAxis("Vertical");
         foreach (WheelCollider wheel in throttleWheels)
         {
