@@ -24,6 +24,15 @@ public class GameUIManager : MonoBehaviour
         GameEvents.ShieldEvent.AddListener(HandleShieldEvent);
     }
 
+    private void Update()
+    {
+        // debugging:
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameEvents.PauseEvent.Invoke();
+        }
+    }
+
     // Game Events Handlers:
 
     private void HandleGameWinEvent(int score)
@@ -80,6 +89,9 @@ public class GameUIManager : MonoBehaviour
 
     public void OnRestartClick()
     {
+        // unpause game:
+        this.UnpauseGame();
+
         // reload same scene:
         SceneManager.LoadSceneAsync("SampleScene");
     }
