@@ -30,6 +30,8 @@ public class UIManager : MonoBehaviour
         cameraFsm = Camera.main.GetComponent<Animator>();
     }
 
+    // click events:
+
     public void OnStartClick()
     {
         // set camera animation parameter:
@@ -106,9 +108,11 @@ public class UIManager : MonoBehaviour
         mainMenu.gameObject.SetActive(true);
     }
 
+    // helper functions:
+    
     private void SpawnCar()
     {
-        // find target car:
+        // find target car from the list:
         GameObject targetCar = this.cars[carIndex];
 
         // delete existing spawned car:
@@ -125,10 +129,10 @@ public class UIManager : MonoBehaviour
         this.spawnedCar.transform.rotation = spawningTransform.rotation;
 
         // adjust Y position of spawned car:
-        adjustYPosition();
+        AdjustYPosition();
     }
 
-    private void adjustYPosition()
+    private void AdjustYPosition()
     {
         // get car height:
         Bounds carBounds = Helpers.GetTotalBounds(this.spawnedCar);
