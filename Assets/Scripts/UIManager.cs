@@ -7,8 +7,8 @@ public class UIManager : MonoBehaviour
 {
     [Header("Menus Related Settings")]
     public Canvas mainMenu;
-    public Canvas pickCar;
-    public Canvas about;
+    public Canvas pickCarMenu;
+    public Canvas aboutMenu;
 
     [Header("Cars Related Settings")]
     public List<GameObject> cars;
@@ -32,16 +32,16 @@ public class UIManager : MonoBehaviour
 
     public void OnStartClick()
     {
-        // set camera animation:
+        // set camera animation parameter:
         cameraFsm.SetBool("PickingCar", true);
 
         // hide main menu:
         mainMenu.gameObject.SetActive(false);
 
         // display pick car menu:
-        pickCar.gameObject.SetActive(true);
+        pickCarMenu.gameObject.SetActive(true);
 
-        // spawn first car:
+        // spawn first car in the list:
         SpawnCar();
     }
 
@@ -51,7 +51,7 @@ public class UIManager : MonoBehaviour
         mainMenu.gameObject.SetActive(false);
 
         // display about menu:
-        about.gameObject.SetActive(true);
+        aboutMenu.gameObject.SetActive(true);
     }
 
     public void OnQuitClick()
@@ -88,6 +88,23 @@ public class UIManager : MonoBehaviour
         // load main scene:
         SceneManager.LoadScene("SampleScene");
     }
+    
+    public void OnBackClick()
+    {
+        // set camera animation parameter:
+        cameraFsm.SetBool("PickingCar", false);
+
+        // hide pick car menu
+        if (pickCarMenu.gameObject.activeSelf)
+            pickCarMenu.gameObject.SetActive(false);
+        
+        // hide about menu
+        if (aboutMenu.gameObject.activeSelf)
+            aboutMenu.gameObject.SetActive(false); 
+
+        // display main menu:
+        mainMenu.gameObject.SetActive(true);
+    }
 
     private void SpawnCar()
     {
@@ -114,7 +131,7 @@ public class UIManager : MonoBehaviour
     private void adjustYPosition()
     {
         // get car height:
-        Bounds carBounds = this.GetTotalBounds(this.spawnedCar);
+        Bounds carBounds = Helpers.GetTotalBounds(this.spawnedCar);
         float carHeight = carBounds.extents.y;
 
         // find new position after adjustement:
@@ -123,34 +140,5 @@ public class UIManager : MonoBehaviour
 
         // update position:
         this.spawnedCar.transform.position = adjustedPosition;
-    }
-
-    private Bounds GetTotalBounds(GameObject obj)
-    {
-        Bounds totalBounds = new Bounds();
-        Renderer renderer = obj.GetComponent<Renderer>();
-
-        if (renderer != null)
-        {
-            totalBounds.Encapsulate(renderer.bounds);
-        }
-
-        if (obj.transform.childCount > 0)
-        {
-            // when object has children:
-            for (int i = 0; i < obj.transform.childCount; i++)
-            {
-                // get child:
-                Transform child = obj.transform.GetChild(i);
-
-                // recursive call:
-                Bounds childBounds = GetTotalBounds(child.gameObject);
-
-                // encapsulate bounds:
-                totalBounds.Encapsulate(childBounds);
-            }
-        }
-
-        return totalBounds;
     }
 }
