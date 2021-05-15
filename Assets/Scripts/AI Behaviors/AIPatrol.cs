@@ -1,36 +1,37 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AIPatrol : StateMachineBehaviour
+public class AIPatrol : MonoBehaviour
 {
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    public bool isWandering = false;
+    private Rigidbody rb;
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    private void Start()
+    {
+        rb = this.gameObject.GetComponent<Rigidbody>();
+    }
 
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    public void startWander()
+    {
+        StartCoroutine(wander());
+    }
 
-    // OnStateMove is called right after Animator.OnAnimatorMove()
-    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that processes and affects root motion
-    //}
+    private IEnumerator wander()
+    {
+        isWandering = true;
 
-    // OnStateIK is called right after Animator.OnAnimatorIK()
-    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that sets up animation IK (inverse kinematics)
-    //}
+        //pick random position on platform to go to
+        Vector3 randomPos = new Vector3(Random.Range(-4.0f, 4.0f), transform.position.y, Random.Range(-4.0f, 4.0f));
+
+        //Drive towards random position
+        while (Vector3.Distance(transform.position, randomPos) > 0.2f)
+        {
+            transform.LookAt(randomPos);
+            transform.position += transform.forward * Time.deltaTime * 2f;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(2f);
+        isWandering = false;
+    }
 }
