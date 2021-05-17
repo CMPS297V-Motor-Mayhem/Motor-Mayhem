@@ -6,9 +6,19 @@ using UnityEngine.UI;
 
 public class GameUIManager : MonoBehaviour
 {
-    public Canvas gameWinMenu;
-    public Canvas gameLoseMenu;
     public Canvas pauseMenu;
+
+    [Header("Game Over Menu Settings")]
+    public Canvas gameOverMenu;
+    public Text gameOverTitle;
+    public List<Image> dividers;
+    public List<Button> buttons;
+    public Text scoreTxt;
+    public Text bestScoreTxt;
+    public Color winColor;
+    public Color loseColor;
+
+    [Header("Abilities Settings")]
     public Image boostUIImage;
     public Image shieldUIImage;
 
@@ -31,24 +41,62 @@ public class GameUIManager : MonoBehaviour
         {
             GameEvents.PauseEvent.Invoke();
         }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            GameEvents.GameWinEvent.Invoke(20);
+        }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            GameEvents.GameLoseEvent.Invoke(10);
+        }
     }
 
     // Game Events Handlers:
 
     private void HandleGameWinEvent(int score)
     {
+        // update best score:
+        BestScoreManager.SaveBestScore(score);
+
+        // update score:
         this.score = score;
 
-        // display game win menu:
-        this.gameWinMenu.gameObject.SetActive(true);
+        // display game over menu:
+        this.gameOverMenu.gameObject.SetActive(true);
+
+        // update title:
+        this.gameOverTitle.text = "You Won!";
+
+        // update score and best score texts:
+        this.scoreTxt.text = score.ToString();
+        this.bestScoreTxt.text = BestScoreManager.GetBestScore().ToString();
+
+        // color objects accordingly:
+        this.ColorGameOverMenuItems(this.winColor);
     }
 
     private void HandleGameLoseEvent(int score)
     {
+        // update best score:
+        BestScoreManager.SaveBestScore(score);
+
+        // update score:
         this.score = score;
 
-        // display game lose menu:
-        this.gameLoseMenu.gameObject.SetActive(true);
+        // display game over menu:
+        this.gameOverMenu.gameObject.SetActive(true);
+
+        // update title:
+        this.gameOverTitle.text = "Game Over - You Lost!";
+
+        // update score and best score texts:
+        this.scoreTxt.text = score.ToString();
+        this.bestScoreTxt.text = BestScoreManager.GetBestScore().ToString();
+
+        // color objects accordingly:
+        this.ColorGameOverMenuItems(this.loseColor);
     }
 
     private void HandlePauseEvent()
@@ -111,6 +159,28 @@ public class GameUIManager : MonoBehaviour
     private void UnpauseGame()
     {
         Time.timeScale = 1;
+    }
+
+    private void ColorGameOverMenuItems(Color color)
+    {
+        // 1. color title:
+        this.gameOverTitle.color = color;
+
+        // 2. color dividers:
+        foreach (Image divider in this.dividers)
+        {
+            divider.color = color;
+        }
+
+        // 3. color scores:
+        this.scoreTxt.color = color;
+        this.bestScoreTxt.color = color;
+
+        // 4. color buttons:
+        foreach (Button btn in this.buttons)
+        {
+            btn.GetComponent<Image>().color = color;
+        }
     }
 
     // Coroutines:
