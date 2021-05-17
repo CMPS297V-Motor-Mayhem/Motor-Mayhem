@@ -4,18 +4,12 @@ using UnityEngine;
 
 public class Abilities : MonoBehaviour
 {
-
-    public  IEnumerator Boost()
+    
+    public void Boost()
     {
-        CarControl carControl = this.GetComponent<CarControl>();
-        carControl.speed = 999999999999999999;
-        Debug.Log("Boost over 90000000000");
-        //Boost for 2 second
-        yield return new WaitForSeconds(2f);
-        carControl.speed = 1500;
-        Debug.Log("Boost 1500");
+        Rigidbody rb = this.GetComponent<Rigidbody>();
+        rb.AddForce(rb.transform.forward * 99999);
         //Cooldown (10 Seconds)
-        yield return new WaitForSeconds(10f);
     }
 
     public IEnumerator Shield()
@@ -26,9 +20,6 @@ public class Abilities : MonoBehaviour
         //Shield for 5 seconds
         yield return new WaitForSeconds(5f);
         rb.mass = 400;
-        Debug.Log("Shield 400");
-        //Cooldown (10 Seconds)
-        yield return new WaitForSeconds(10f);
     }
 
 }

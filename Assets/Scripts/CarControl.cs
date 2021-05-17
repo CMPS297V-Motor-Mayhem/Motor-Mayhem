@@ -10,20 +10,24 @@ public class CarControl : MonoBehaviour
 
     public List<Collider> throttleWheels;
     public List<Collider> steeringWheels;
-
+    private float BoostcdTime = 0.0f;
+    private float SheildcdTime = 0.0f;
+    private float cd = 5.0f;
 
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)) && Time.time > BoostcdTime)
         {
             Debug.Log("Called");
-            StartCoroutine(GetComponent<Abilities>().Boost());
+            GetComponent<Abilities>().Boost();
+            BoostcdTime = Time.time + cd;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.Mouse1))
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.Mouse1)) && Time.time > SheildcdTime)
         {
             StartCoroutine(GetComponent<Abilities>().Shield());
+            SheildcdTime = Time.time + cd;
         }
     }
 
