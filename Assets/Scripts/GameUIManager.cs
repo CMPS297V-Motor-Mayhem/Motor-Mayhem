@@ -4,9 +4,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+enum Ability
+{
+    Boost,
+    Shield
+}
+
 public class GameUIManager : MonoBehaviour
 {
+    public Canvas gameUiMenu;
     public Canvas pauseMenu;
+
+    [Header("UI Settings")]
+    public Text scoreValueTxt;
+    public Text remainingCarsValueTxt;
+    public Text carsKnockedOutValueTxt;
+
+    [Header("Abilities Settings")]
+    public Image boostUIImage;
+    public Image shieldUIImage;
 
     [Header("Game Over Menu Settings")]
     public Canvas gameOverMenu;
@@ -18,50 +34,44 @@ public class GameUIManager : MonoBehaviour
     public Color winColor;
     public Color loseColor;
 
-    [Header("Abilities Settings")]
-    public Image boostUIImage;
-    public Image shieldUIImage;
+    [HideInInspector] public int score;         // needs constant feeding from elsewhere
+    [HideInInspector] public int carsRemaining; // needs constant feeding from elsewhere
 
-    private int score;
+    // helper variables:
+    private int knockedOffCars;
+    private bool isBoosted;
+    private bool isShielded;
 
     private void Start()
     {
+        // initialize helper variables:
+        this.knockedOffCars = 0;
+
         // add listeners to events:
         GameEvents.GameWinEvent.AddListener(HandleGameWinEvent);
         GameEvents.GameLoseEvent.AddListener(HandleGameLoseEvent);
         GameEvents.PauseEvent.AddListener(HandlePauseEvent);
         GameEvents.BoostEvent.AddListener(HandleBoostEvent);
         GameEvents.ShieldEvent.AddListener(HandleShieldEvent);
+        GameEvents.KnockedOffCarEvent.AddListener(HandleKnockedOffCarEvent);
     }
 
     private void Update()
     {
-        // debugging:
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            GameEvents.PauseEvent.Invoke();
-        }
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            GameEvents.GameWinEvent.Invoke(20);
-        }
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            GameEvents.GameLoseEvent.Invoke(10);
-        }
+        // update UI every frame:
+        UpdateScoreUI();
+        UpdateCarsRemainingUI();
     }
 
     // Game Events Handlers:
 
-    private void HandleGameWinEvent(int score)
+    private void HandleGameWinEvent()
     {
+        // hide game UI menu:
+        this.gameUiMenu.gameObject.SetActive(false);
+        
         // update best score:
         BestScoreManager.SaveBestScore(score);
-
-        // update score:
-        this.score = score;
 
         // display game over menu:
         this.gameOverMenu.gameObject.SetActive(true);
@@ -77,13 +87,13 @@ public class GameUIManager : MonoBehaviour
         this.ColorGameOverMenuItems(this.winColor);
     }
 
-    private void HandleGameLoseEvent(int score)
+    private void HandleGameLoseEvent()
     {
+        // hide game UI menu:
+        this.gameUiMenu.gameObject.SetActive(false);
+
         // update best score:
         BestScoreManager.SaveBestScore(score);
-
-        // update score:
-        this.score = score;
 
         // display game over menu:
         this.gameOverMenu.gameObject.SetActive(true);
@@ -101,6 +111,9 @@ public class GameUIManager : MonoBehaviour
 
     private void HandlePauseEvent()
     {
+        // hide game UI menu:
+        this.gameUiMenu.gameObject.SetActive(false);
+
         // pause game:
         this.PauseGame();
 
@@ -110,12 +123,25 @@ public class GameUIManager : MonoBehaviour
 
     private void HandleBoostEvent(int cooldownDuration)
     {
-        StartCoroutine(DisplayCooldown(this.boostUIImage, cooldownDuration));
+        // ensure that player isn't already boosted:
+        if (!isBoosted)
+            StartCoroutine(DisplayAbilityCooldown(this.boostUIImage, cooldownDuration, Ability.Boost));
     }
 
     private void HandleShieldEvent(int cooldownDuration)
     {
-        StartCoroutine(DisplayCooldown(this.shieldUIImage, cooldownDuration));
+        // ensure that player isn't already shielded:
+        if (!isShielded)
+            StartCoroutine(DisplayAbilityCooldown(this.shieldUIImage, cooldownDuration, Ability.Shield));
+    }
+
+    private void HandleKnockedOffCarEvent()
+    {
+        // increment knocked off cars;
+        this.knockedOffCars++;
+
+        // update UI:
+        this.carsKnockedOutValueTxt.text = this.knockedOffCars.ToString();
     }
 
     // Click Event Handlers:
@@ -159,6 +185,9 @@ public class GameUIManager : MonoBehaviour
     private void UnpauseGame()
     {
         Time.timeScale = 1;
+
+        // show game UI menu:
+        this.gameUiMenu.gameObject.SetActive(true);
     }
 
     private void ColorGameOverMenuItems(Color color)
@@ -183,16 +212,49 @@ public class GameUIManager : MonoBehaviour
         }
     }
 
+    private void UpdateScoreUI()
+    {
+        this.scoreValueTxt.text = this.score.ToString();
+    }
+
+    private void UpdateCarsRemainingUI()
+    {
+        this.remainingCarsValueTxt.text = this.carsRemaining.ToString();
+    }
+
     // Coroutines:
 
-    IEnumerator DisplayCooldown(Image img, int cooldownDuration)
+    IEnumerator DisplayAbilityCooldown(Image img, int cooldownDuration, Ability ability)
     {
+        // first, make sure that the boolean value is set properly
+        // to prevent "double boosting" or "double shielding"
+        switch (ability)
+        {
+            case Ability.Boost:
+                isBoosted = true;
+                break;
+            case Ability.Shield:
+                isShielded = true;
+                break;
+        }
+
         float elapsedTime = 0.0f;
         while(elapsedTime < cooldownDuration)
         {
             img.fillAmount = elapsedTime / (float)cooldownDuration;
             yield return new WaitForEndOfFrame();
             elapsedTime += Time.deltaTime;
+        }
+
+        // after we're done, return the boolean values to their initial value
+        switch (ability)
+        {
+            case Ability.Boost:
+                isBoosted = false;
+                break;
+            case Ability.Shield:
+                isShielded = false;
+                break;
         }
     }
 }
