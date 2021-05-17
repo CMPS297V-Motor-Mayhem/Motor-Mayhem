@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-enum Ability
+public enum Ability
 {
     Boost,
     Shield
@@ -224,7 +224,7 @@ public class GameUIManager : MonoBehaviour
 
     // Coroutines:
 
-    IEnumerator DisplayAbilityCooldown(Image img, int cooldownDuration, Ability ability)
+    public IEnumerator DisplayAbilityCooldown(Image img, int cooldownDuration, Ability ability)
     {
         // first, make sure that the boolean value is set properly
         // to prevent "double boosting" or "double shielding"

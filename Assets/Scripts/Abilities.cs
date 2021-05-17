@@ -9,14 +9,12 @@ public class Abilities : MonoBehaviour
     {
         Rigidbody rb = this.GetComponent<Rigidbody>();
         rb.AddForce(rb.transform.forward * 99999);
-        //Cooldown (10 Seconds)
     }
 
     public IEnumerator Shield()
     {
         Rigidbody rb = this.GetComponent<Rigidbody>();
-        rb.mass = 9999999999;
-        Debug.Log("Shield over 9000000");
+        rb.mass = 99999;
         //Shield for 5 seconds
         yield return new WaitForSeconds(5f);
         rb.mass = 400;

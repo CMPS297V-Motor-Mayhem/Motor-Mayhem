@@ -7,6 +7,7 @@ public class CarControl : MonoBehaviour
 {
     public long speed = 1500;
     public float maxRotationAngle = 15.0f;
+    GameUIManager gameUIManager;
 
     public List<Collider> throttleWheels;
     public List<Collider> steeringWheels;
@@ -14,6 +15,10 @@ public class CarControl : MonoBehaviour
     private float SheildcdTime = 0.0f;
     private float cd = 5.0f;
 
+    private void Start()
+    {
+        gameUIManager = GetComponent<GameUIManager>();
+    }
 
     private void Update()
     {
@@ -22,12 +27,14 @@ public class CarControl : MonoBehaviour
             Debug.Log("Called");
             GetComponent<Abilities>().Boost();
             BoostcdTime = Time.time + cd;
+            StartCoroutine(gameUIManager.DisplayAbilityCooldown(gameUIManager.boostUIImage, 5, Ability.Boost));
         }
 
         if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.Mouse1)) && Time.time > SheildcdTime)
         {
             StartCoroutine(GetComponent<Abilities>().Shield());
             SheildcdTime = Time.time + cd;
+            StartCoroutine(gameUIManager.DisplayAbilityCooldown(gameUIManager.shieldUIImage, 5, Ability.Shield));
         }
     }
 
