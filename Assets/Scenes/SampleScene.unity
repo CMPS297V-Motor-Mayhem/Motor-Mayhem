@@ -465,6 +465,7 @@ GameObject:
   - component: {fileID: 114111338}
   - component: {fileID: 114111337}
   - component: {fileID: 114111341}
+  - component: {fileID: 114111342}
   m_Layer: 1
   m_Name: Out Zone
   m_TagString: Map
@@ -563,6 +564,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uvAnimationRate: {x: 0.03, y: 0}
   textureName: _MainTex
+--- !u!114 &114111342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114111336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ceabc20c24dbf54d951bdbb132f6ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &134433845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,7 +1172,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 297848113}
-  m_LocalRotation: {x: 0.25318253, y: -0.000000008322886, z: 0.0000000021781772, w: 0.96741855}
+  m_LocalRotation: {x: 0.25318253, y: 0.000000008322886, z: -0.0000000021781772, w: 0.96741855}
   m_LocalPosition: {x: -2, y: 2.781, z: -0.945}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3346,7 +3359,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.25318253, y: -0.000000008322886, z: 0.0000000021781772, w: 0.96741855}
+  m_LocalRotation: {x: 0.25318253, y: 0.000000008322886, z: -0.0000000021781772, w: 0.96741855}
   m_LocalPosition: {x: -2, y: 2.781, z: -0.945}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
