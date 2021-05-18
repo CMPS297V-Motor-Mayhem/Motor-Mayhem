@@ -16,7 +16,6 @@ public class GameStateController : MonoBehaviour
         //Pause Control
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Esc");
             //if game is paused, unpause it
             if (animator.GetBool("isPaused").Equals(true))
             {
