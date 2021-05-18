@@ -48,7 +48,7 @@ When done with an issue:
 
 ## Technologies
 
-- Unity
+- Unity Version 2020.3.6f1
 
 ## Assets
 
