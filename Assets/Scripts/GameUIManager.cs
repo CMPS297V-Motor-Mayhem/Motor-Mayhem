@@ -51,6 +51,7 @@ public class GameUIManager : MonoBehaviour
         GameEvents.GameWinEvent.AddListener(HandleGameWinEvent);
         GameEvents.GameLoseEvent.AddListener(HandleGameLoseEvent);
         GameEvents.PauseEvent.AddListener(HandlePauseEvent);
+        GameEvents.UnPauseEvent.AddListener(HandleUnPauseEvent);
         GameEvents.BoostEvent.AddListener(HandleBoostEvent);
         GameEvents.ShieldEvent.AddListener(HandleShieldEvent);
         GameEvents.KnockedOffCarEvent.AddListener(HandleKnockedOffCarEvent);
@@ -119,6 +120,11 @@ public class GameUIManager : MonoBehaviour
 
         // display pause menu:
         this.pauseMenu.gameObject.SetActive(true);
+    }
+
+    private void HandleUnPauseEvent()
+    {
+        OnResumeClick();
     }
 
     private void HandleBoostEvent(int cooldownDuration)
