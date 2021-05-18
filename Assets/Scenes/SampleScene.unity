@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 114111341}
   m_Layer: 1
   m_Name: Out Zone
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -846,7 +846,7 @@ GameObject:
   - component: {fileID: 203338025}
   m_Layer: 0
   m_Name: Platform Pillar
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -942,7 +942,7 @@ GameObject:
   - component: {fileID: 230415739}
   m_Layer: 0
   m_Name: Wall (3)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1921,7 +1921,7 @@ GameObject:
   - component: {fileID: 465718364}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2621,13 +2621,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855ec4945c46c5d4faf1c0317cfef95d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameUiMenu: {fileID: 0}
-  pauseMenu: {fileID: 0}
+  gameUiMenu: {fileID: 616014426}
+  pauseMenu: {fileID: 77536002}
   scoreValueTxt: {fileID: 0}
   remainingCarsValueTxt: {fileID: 0}
   carsKnockedOutValueTxt: {fileID: 0}
-  boostUIImage: {fileID: 0}
-  shieldUIImage: {fileID: 0}
+  boostUIImage: {fileID: 1937135420}
+  shieldUIImage: {fileID: 66657848}
   gameOverMenu: {fileID: 0}
   gameOverTitle: {fileID: 0}
   dividers: []
@@ -3712,7 +3712,7 @@ GameObject:
   - component: {fileID: 1286966736}
   m_Layer: 0
   m_Name: Wall (1)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3967,7 +3967,7 @@ GameObject:
   - component: {fileID: 1374167980}
   m_Layer: 0
   m_Name: Wall (2)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5025,7 +5025,7 @@ GameObject:
   - component: {fileID: 1936460534}
   m_Layer: 0
   m_Name: Map
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

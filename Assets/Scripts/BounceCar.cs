@@ -13,12 +13,8 @@ public class BounceCar : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name.Equals("Out Zone"))
-        {
-            Destroy(this.gameObject);
-        }
         // simulate the bouciness effect:
-        else if (!collision.gameObject.CompareTag("Ground"))
+        if (!collision.gameObject.CompareTag("Ground"))
         {
             float impactForce = collision.impulse.magnitude;
             Vector3 normal = collision.contacts[0].normal;
