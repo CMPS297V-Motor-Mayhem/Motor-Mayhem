@@ -17,14 +17,13 @@ public class CarControl : MonoBehaviour
 
     private void Start()
     {
-        gameUIManager = GetComponent<GameUIManager>();
+        gameUIManager = GameObject.Find("UIManager").GetComponent<GameUIManager>();
     }
 
     private void Update()
     {
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)) && Time.time > BoostcdTime)
         {
-            Debug.Log("Called");
             GetComponent<Abilities>().Boost();
             BoostcdTime = Time.time + cd;
             StartCoroutine(gameUIManager.DisplayAbilityCooldown(gameUIManager.boostUIImage, 5, Ability.Boost));
