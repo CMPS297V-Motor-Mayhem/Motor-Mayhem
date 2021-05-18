@@ -7,7 +7,7 @@ public class CarControl : MonoBehaviour
 {
     public long speed = 1500;
     public float maxRotationAngle = 15.0f;
-    GameUIManager gameUIManager;
+    private GameUIManager gameUIManager;
 
     public List<Collider> throttleWheels;
     public List<Collider> steeringWheels;
@@ -38,7 +38,6 @@ public class CarControl : MonoBehaviour
         }
     }
 
-
     private void FixedUpdate()
     {
         Throttle();
@@ -47,7 +46,6 @@ public class CarControl : MonoBehaviour
 
     private void Throttle()
     {
-            
         float dy = Input.GetAxis("Vertical");
         foreach (WheelCollider wheel in throttleWheels)
         {
