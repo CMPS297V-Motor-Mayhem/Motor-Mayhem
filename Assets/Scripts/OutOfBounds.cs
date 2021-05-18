@@ -11,4 +11,12 @@ public class OutOfBounds : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+    
+    private void OnCollisionStay(Collision collision)
+    {
+        if (!collision.gameObject.CompareTag("Map"))
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 }
