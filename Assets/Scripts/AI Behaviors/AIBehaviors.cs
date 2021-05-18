@@ -1,28 +1,27 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class AIBehavior : MonoBehaviour
+public class AIBehaviors : MonoBehaviour
 {
-    public bool isWandering = false;
-    private Rigidbody rb;
+
+    [HideInInspector] public bool isWandering = false;
     private Animator animator;
 
     private void Start()
     {
-        rb = this.gameObject.GetComponent<Rigidbody>();
         animator = this.gameObject.GetComponent<Animator>();
+        //initialize the boost and shield to ready
         animator.SetBool("shieldReady", true);
         animator.SetBool("BoostReady", true);
-
     }
 
     private void Update()
     {
-        Debug.Log(animator.GetBool("close2Edge"));
-        if (Mathf.Pow(gameObject.transform.position.x, 2.0f) + Mathf.Pow(gameObject.transform.position.z, 2.0f) > 20.25f )
+        //Check if the agent is close to the edge
+        if (Mathf.Pow(gameObject.transform.position.x, 2.0f) + Mathf.Pow(gameObject.transform.position.z, 2.0f) > 19f)
         {
             animator.SetBool("close2Edge", true);
-
         }
         else
         {
@@ -30,10 +29,14 @@ public class AIBehavior : MonoBehaviour
         }
     }
 
-
     public void startWander()
     {
         StartCoroutine(wander());
+    }
+
+    public void startActivateShield()
+    {
+        StartCoroutine(activateShield());
     }
 
     private IEnumerator wander()
@@ -55,19 +58,12 @@ public class AIBehavior : MonoBehaviour
         isWandering = false;
     }
 
-    public void startActivateShield()
-    {
-        StartCoroutine(activateShield());
-    }
-    
     public IEnumerator activateShield()
     {
-       
-        gameObject.GetComponent<Abilities>().Shield();
-        transform.LookAt(new Vector3(0,this.transform.position.y,0));
+        StartCoroutine(gameObject.GetComponent<Abilities>().Shield());
+        transform.LookAt(new Vector3(0, this.transform.position.y, 0));
         transform.position += transform.forward * Time.deltaTime * 2f;
         yield return new WaitForSeconds(5);
         animator.SetBool("shieldReady", true);
-
     }
 }
