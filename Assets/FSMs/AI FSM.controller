@@ -33,7 +33,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
+  - m_ConditionMode: 1
     m_ConditionEvent: shieldReady
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -131,6 +131,18 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-516824175091236292
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6c1276662c6714b9d4dfb33eca7299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -299,7 +311,8 @@ AnimatorStateMachine:
   m_EntryTransitions:
   - {fileID: -2958613769605492316}
   m_StateMachineTransitions: {}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -516824175091236292}
   m_AnyStatePosition: {x: 780, y: 70, z: 0}
   m_EntryPosition: {x: 350, y: 90, z: 0}
   m_ExitPosition: {x: 780, y: 30, z: 0}

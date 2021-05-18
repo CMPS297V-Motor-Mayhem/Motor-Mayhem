@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class AIPatrolState : StateMachineBehaviour
 {
-    private AIPatrol car;
+    private AIBehavior car;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        car = animator.gameObject.GetComponent<AIPatrol>();
+        car = animator.gameObject.GetComponent<AIBehavior>();
         Debug.Log("Entered Patrol State: " + animator.gameObject.name);
     }
 
@@ -16,5 +16,7 @@ public class AIPatrolState : StateMachineBehaviour
         {
             car.startWander();
         }
+
+        
     }
 }

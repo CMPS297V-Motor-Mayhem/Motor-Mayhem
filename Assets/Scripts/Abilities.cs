@@ -15,9 +15,11 @@ public class Abilities : MonoBehaviour
     {
         Rigidbody rb = this.GetComponent<Rigidbody>();
         rb.mass = 99999;
+        this.GetComponent<CarControl>().speed = 374997;
         //Shield for 5 seconds
         yield return new WaitForSeconds(5f);
         rb.mass = 400;
+        this.GetComponent<CarControl>().speed = 1500;
     }
 
 }
