@@ -1,10 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Abilities : MonoBehaviour
 {
-    
     public void Boost()
     {
         Rigidbody rb = this.GetComponent<Rigidbody>();
@@ -14,12 +12,20 @@ public class Abilities : MonoBehaviour
     public IEnumerator Shield()
     {
         Rigidbody rb = this.GetComponent<Rigidbody>();
-        rb.mass = 99999;
-        this.GetComponent<CarControl>().speed = 374997;
+        rb.mass = 100000;
+        if (this.CompareTag("Player"))
+        {
+            this.GetComponent<CarControl>().speed = 374997;
+        }
+        this.GetComponent<MeshRenderer>().enabled = true; //Display Shield
+
         //Shield for 5 seconds
         yield return new WaitForSeconds(5f);
         rb.mass = 400;
-        this.GetComponent<CarControl>().speed = 1500;
+        if (this.CompareTag("Player"))
+        {
+            this.GetComponent<CarControl>().speed = 1500;
+        }
+        this.GetComponent<MeshRenderer>().enabled = false; //Hide Shield
     }
-
 }
