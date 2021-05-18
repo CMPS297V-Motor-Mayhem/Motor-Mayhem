@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class GameWinEvent : UnityEvent { }
 public class GameLoseEvent : UnityEvent { }
 public class PauseEvent : UnityEvent { }
+public class UnPauseEvent : UnityEvent { }
 public class BoostEvent : UnityEvent<int> { }
 public class ShieldEvent : UnityEvent<int> { }
 public class KnockedOffCarEvent : UnityEvent { }
@@ -15,6 +16,7 @@ public class GameEvents : MonoBehaviour
     public static GameWinEvent GameWinEvent;
     public static GameLoseEvent GameLoseEvent;
     public static PauseEvent PauseEvent;
+    public static UnPauseEvent UnPauseEvent;
     public static BoostEvent BoostEvent;
     public static ShieldEvent ShieldEvent;
     public static KnockedOffCarEvent KnockedOffCarEvent;
@@ -31,6 +33,9 @@ public class GameEvents : MonoBehaviour
 
         if (PauseEvent == null)
             PauseEvent = new PauseEvent();
+        
+        if (UnPauseEvent == null)
+            UnPauseEvent = new UnPauseEvent();
 
         if (BoostEvent == null)
             BoostEvent = new BoostEvent();
