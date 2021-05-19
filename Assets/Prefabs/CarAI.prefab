@@ -465,6 +465,7 @@ GameObject:
   - component: {fileID: 4752788488848022761}
   - component: {fileID: 5646676875081802372}
   - component: {fileID: 6617605698680197113}
+  - component: {fileID: 2044864758}
   m_Layer: 0
   m_Name: CarAI
   m_TagString: Car
@@ -591,6 +592,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b204ce3f27b56043a5f26edca9c99f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rayDistance: 4
+  distanceToBoost: 2
   isWandering: 0
 --- !u!114 &5646676875081802372
 MonoBehaviour:
@@ -604,6 +607,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd6dbaa54d82524aa34316dc2f5828e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boostForce: 99999
+  boostCooldown: 5
+  shieldDuration: 5
+  shieldCooldown: 5
 --- !u!95 &6617605698680197113
 Animator:
   serializedVersion: 3
@@ -623,6 +630,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2044864758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3906352497839756119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88b2cf43fbf7a6d44a9151676cad0107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableDebug: 1
+  fieldOfView: 90
+  viewDistance: 100
+  spottedCars: []
 --- !u!1 &5132743766671233326
 GameObject:
   m_ObjectHideFlags: 0
