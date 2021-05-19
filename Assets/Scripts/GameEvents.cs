@@ -7,9 +7,10 @@ public class GameWinEvent : UnityEvent { }
 public class GameLoseEvent : UnityEvent { }
 public class PauseEvent : UnityEvent { }
 public class UnPauseEvent : UnityEvent { }
-public class BoostEvent : UnityEvent<int> { }
-public class ShieldEvent : UnityEvent<int> { }
+public class BoostEvent : UnityEvent<float> { }
+public class ShieldEvent : UnityEvent<float> { }
 public class KnockedOffCarEvent : UnityEvent { }
+public class DeterminedClosestCarEvent : UnityEvent<GameObject> { }
 
 public class GameEvents : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class GameEvents : MonoBehaviour
     public static BoostEvent BoostEvent;
     public static ShieldEvent ShieldEvent;
     public static KnockedOffCarEvent KnockedOffCarEvent;
+    public static DeterminedClosestCarEvent DeterminedClosestCarEvent;
 
     private void Awake()
     {
@@ -45,5 +47,8 @@ public class GameEvents : MonoBehaviour
 
         if (KnockedOffCarEvent == null)
             KnockedOffCarEvent = new KnockedOffCarEvent();
+
+        if (DeterminedClosestCarEvent == null)
+            DeterminedClosestCarEvent = new DeterminedClosestCarEvent();
     }
 }
