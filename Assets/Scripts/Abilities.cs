@@ -13,7 +13,7 @@ public class Abilities : MonoBehaviour
     {
         Rigidbody rb = this.GetComponent<Rigidbody>();
         rb.mass = 100000;
-        if (this.CompareTag("Player"))
+        if (this.name.Equals("CarPlayer"))
         {
             this.GetComponent<CarControl>().speed = 374997;
         }
@@ -22,7 +22,7 @@ public class Abilities : MonoBehaviour
         //Shield for 5 seconds
         yield return new WaitForSeconds(5f);
         rb.mass = 400;
-        if (this.CompareTag("Player"))
+        if (this.name.Equals("CarPlayer"))
         {
             this.GetComponent<CarControl>().speed = 1500;
         }
