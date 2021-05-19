@@ -10,7 +10,7 @@ public class OutOfBounds : MonoBehaviour
         if (!collision.gameObject.CompareTag("Map"))
         {
             Destroy(collision.gameObject);
-            if (collision.gameObject.CompareTag("Player"))
+            if (collision.gameObject.name.Equals("CarPlayer"))
             {
                 //if the player dies -> Game over
                 GameEvents.GameLoseEvent.Invoke();

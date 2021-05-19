@@ -462,12 +462,12 @@ GameObject:
   - component: {fileID: 1459583285043641096}
   - component: {fileID: 4598204237244131440}
   - component: {fileID: 159677327335857948}
-  - component: {fileID: 1956713754759981269}
   - component: {fileID: 4752788488848022761}
   - component: {fileID: 5646676875081802372}
+  - component: {fileID: 6617605698680197113}
   m_Layer: 0
-  m_Name: AiPlayer
-  m_TagString: Untagged
+  m_Name: CarAI
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -481,7 +481,7 @@ Transform:
   m_GameObject: {fileID: 3906352497839756119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.044, y: 2.535, z: -0.98}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 6077133917735413748}
   - {fileID: 534059466522061981}
@@ -558,14 +558,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3906352497839756119}
   serializedVersion: 2
-  m_Mass: 200
-  m_Drag: 0
-  m_AngularDrag: 0
+  m_Mass: 400
+  m_Drag: 0.75
+  m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &159677327335857948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -579,25 +579,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bouncinessForce: 2
---- !u!95 &1956713754759981269
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3906352497839756119}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: abcf2fccc5abf5045acdf48563ec2ada, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &4752788488848022761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,6 +604,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd6dbaa54d82524aa34316dc2f5828e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &6617605698680197113
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3906352497839756119}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: abcf2fccc5abf5045acdf48563ec2ada, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5132743766671233326
 GameObject:
   m_ObjectHideFlags: 0
