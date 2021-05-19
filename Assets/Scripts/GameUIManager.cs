@@ -127,14 +127,14 @@ public class GameUIManager : MonoBehaviour
         OnResumeClick();
     }
 
-    private void HandleBoostEvent(int cooldownDuration)
+    private void HandleBoostEvent(float cooldownDuration)
     {
         // ensure that player isn't already boosted:
         if (!isBoosted)
             StartCoroutine(DisplayAbilityCooldown(this.boostUIImage, cooldownDuration, Ability.Boost));
     }
 
-    private void HandleShieldEvent(int cooldownDuration)
+    private void HandleShieldEvent(float cooldownDuration)
     {
         // ensure that player isn't already shielded:
         if (!isShielded)
@@ -230,7 +230,7 @@ public class GameUIManager : MonoBehaviour
 
     // Coroutines:
 
-    public IEnumerator DisplayAbilityCooldown(Image img, int cooldownDuration, Ability ability)
+    public IEnumerator DisplayAbilityCooldown(Image img, float cooldownDuration, Ability ability)
     {
         // first, make sure that the boolean value is set properly
         // to prevent "double boosting" or "double shielding"
@@ -247,7 +247,7 @@ public class GameUIManager : MonoBehaviour
         float elapsedTime = 0.0f;
         while(elapsedTime < cooldownDuration)
         {
-            img.fillAmount = elapsedTime / (float)cooldownDuration;
+            img.fillAmount = elapsedTime / cooldownDuration;
             yield return new WaitForEndOfFrame();
             elapsedTime += Time.deltaTime;
         }

@@ -7,14 +7,13 @@ public class AIShieldState : StateMachineBehaviour
     // OnStateEnter is called before OnStateEnter is called on any state inside this state machine
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("Entered Shield State");
+        Debug.Log("Entered Shield State : " + animator.gameObject.name);
         car = animator.gameObject.GetComponent<AIBehaviors>();
     }
 
     //OnStateUpdate is called before OnStateUpdate is called on any state inside this state machine
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetBool("shieldReady", false);
         car.startActivateShield();
     }
 }

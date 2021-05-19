@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CarsTracker : MonoBehaviour
 {
-    public GameObject[] CarsList;
+    public static GameObject[] CarsList;
     private GameUIManager gameUiManager;
 
     private void Start()
@@ -15,7 +15,7 @@ public class CarsTracker : MonoBehaviour
         CarsList = GameObject.FindGameObjectsWithTag("Car");
         gameUiManager.carsRemaining = CarsList.Length - 1;
 
-        if (CarsList.Length <= 1)
+        if (CarsList.Length <= 1 && GameObject.Find("CarPlayer") != null)
         {
             GameEvents.GameWinEvent.Invoke();
         }

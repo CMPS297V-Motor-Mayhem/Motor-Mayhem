@@ -3,10 +3,17 @@ using UnityEngine;
 
 public class Abilities : MonoBehaviour
 {
+    public float boostForce = 99999.0f;
+
+    // centralized cooldown durations:
+    public float boostCooldown = 10.0f;
+    public float shieldDuration = 5.0f;
+    public float shieldCooldown = 5.0f;
+
     public void Boost()
     {
         Rigidbody rb = this.GetComponent<Rigidbody>();
-        rb.AddForce(rb.transform.forward * 99999);
+        rb.AddForce(rb.transform.forward * boostForce);
     }
 
     public IEnumerator Shield()
@@ -19,8 +26,8 @@ public class Abilities : MonoBehaviour
         }
         this.GetComponent<MeshRenderer>().enabled = true; //Display Shield
 
-        //Shield for 5 seconds
-        yield return new WaitForSeconds(5f);
+        //Shield for X seconds
+        yield return new WaitForSeconds(this.shieldDuration);
         rb.mass = 400;
         if (this.name.Equals("CarPlayer"))
         {
