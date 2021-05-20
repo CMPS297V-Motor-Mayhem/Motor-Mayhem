@@ -53,8 +53,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boostForce: 99999
-  Particle1: {fileID: 0}
-  Particle2: {fileID: 0}
   boostCooldown: 10
   shieldDuration: 5
   shieldCooldown: 5

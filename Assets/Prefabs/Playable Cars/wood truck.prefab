@@ -290,7 +290,7 @@ WheelCollider:
     targetPosition: 0.5
   m_SuspensionDistance: 0
   m_ForceAppPointDistance: 0
-  m_Mass: 7
+  m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
@@ -504,8 +504,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boostForce: 99999
-  Particle1: {fileID: 0}
-  Particle2: {fileID: 0}
   boostCooldown: 10
   shieldDuration: 5
   shieldCooldown: 5
@@ -533,8 +531,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.42308587, y: 0.40325755, z: 0.97282535}
-  m_Center: {x: -0.000000029802322, y: 0.016742341, z: 0.0037056506}
+  m_Size: {x: 0.42308587, y: 0.36106017, z: 0.9728254}
+  m_Center: {x: -0.000000033113693, y: 0.037841145, z: 0.003705654}
 --- !u!54 &-1341067309268271821
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -543,7 +541,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6316676241449981047}
   serializedVersion: 2
-  m_Mass: 600
+  m_Mass: 400
   m_Drag: 0.75
   m_AngularDrag: 0.5
   m_UseGravity: 1
@@ -813,7 +811,7 @@ WheelCollider:
     targetPosition: 0.5
   m_SuspensionDistance: 0
   m_ForceAppPointDistance: 0
-  m_Mass: 7
+  m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4

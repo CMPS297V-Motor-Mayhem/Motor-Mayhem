@@ -53,8 +53,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boostForce: 99999
-  Particle1: {fileID: 0}
-  Particle2: {fileID: 0}
   boostCooldown: 10
   shieldDuration: 5
   shieldCooldown: 5
@@ -92,7 +90,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232998180875289939}
   serializedVersion: 2
-  m_Mass: 300
+  m_Mass: 400
   m_Drag: 0.75
   m_AngularDrag: 0.5
   m_UseGravity: 1
