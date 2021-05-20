@@ -117,7 +117,7 @@ public class AIBehaviors : MonoBehaviour
     private IEnumerator ActivateBoost()
     {
         animator.SetBool("boostReady", false);
-        abilities.Boost();
+        StartCoroutine(abilities.Boost());
 
         // cooldown:
         yield return new WaitForSeconds(abilities.boostCooldown);
