@@ -79,7 +79,7 @@ public class CarControl : MonoBehaviour
             StartCoroutine(abilities.Shield());
             SheildcdTime = Time.time + cd;
             //StartCoroutine(gameUIManager.DisplayAbilityCooldown(gameUIManager.shieldUIImage, 5, Ability.Shield));
-            GameEvents.BoostEvent.Invoke(abilities.shieldDuration);
+            GameEvents.ShieldEvent.Invoke(abilities.shieldDuration);
         }
     }
 }
