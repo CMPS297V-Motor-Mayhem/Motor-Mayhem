@@ -45,6 +45,9 @@ public class UIManager : MonoBehaviour
 
         // spawn first car in the list:
         SpawnCar();
+
+        // play game start sfx
+        SFXEvents.SFXGameStartEvent();
     }
 
     public void OnAboutClick()
