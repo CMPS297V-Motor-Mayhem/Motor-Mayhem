@@ -11,13 +11,13 @@ public class UIManager : MonoBehaviour
     public Canvas aboutMenu;
 
     [Header("Cars Related Settings")]
-    public List<GameObject> cars;
     public Transform spawningTransform;
 
     // helper variables:
     private int carIndex;
     private Animator cameraFsm;
     private GameObject spawnedCar;
+    private List<GameObject> carsList;
 
     private void Start()
     {
@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
     {
         carIndex = 0;
         cameraFsm = Camera.main.GetComponent<Animator>();
+        carsList = CarsList.Instance.carsList;
     }
 
     // click events:
@@ -65,7 +66,7 @@ public class UIManager : MonoBehaviour
     {
         // update index:
         if (carIndex == 0)
-            carIndex = this.cars.Count - 1;
+            carIndex = this.carsList.Count - 1;
         else
             carIndex--;
 
@@ -76,7 +77,7 @@ public class UIManager : MonoBehaviour
     public void OnNextCarClick()
     {
         // update index:
-        carIndex = (carIndex + 1) % this.cars.Count;
+        carIndex = (carIndex + 1) % this.carsList.Count;
 
         // spawn car:
         SpawnCar();
@@ -113,7 +114,7 @@ public class UIManager : MonoBehaviour
     private void SpawnCar()
     {
         // find target car from the list:
-        GameObject targetCar = this.cars[carIndex];
+        GameObject targetCar = this.carsList[carIndex];
 
         // delete existing spawned car:
         if (this.spawnedCar != null)
@@ -129,20 +130,6 @@ public class UIManager : MonoBehaviour
         this.spawnedCar.transform.rotation = spawningTransform.rotation;
 
         // adjust Y position of spawned car:
-        AdjustYPosition();
-    }
-
-    private void AdjustYPosition()
-    {
-        // get car height:
-        Bounds carBounds = Helpers.GetTotalBounds(this.spawnedCar);
-        float carHeight = carBounds.extents.y;
-
-        // find new position after adjustement:
-        Vector3 adjustedPosition = this.spawnedCar.transform.position;
-        adjustedPosition.y = carHeight;
-
-        // update position:
-        this.spawnedCar.transform.position = adjustedPosition;
+        Helpers.AdjustYPosition(spawnedCar, 0.0f);
     }
 }

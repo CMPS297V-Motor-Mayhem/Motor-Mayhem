@@ -32,4 +32,18 @@ public class Helpers : MonoBehaviour
 
         return totalBounds;
     }
+
+    public static void AdjustYPosition(GameObject car, float groundHeight)
+    {
+        // get car height:
+        Bounds carBounds = GetTotalBounds(car);
+        float carHeight = carBounds.extents.y;
+
+        // find new position after adjustement:
+        Vector3 adjustedPosition = car.transform.position;
+        adjustedPosition.y = groundHeight + carHeight;
+
+        // update position:
+        car.transform.position = adjustedPosition;
+    }
 }
