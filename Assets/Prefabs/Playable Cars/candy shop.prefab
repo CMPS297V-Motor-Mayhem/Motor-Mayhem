@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3712022407004782558}
   - component: {fileID: 1774427905165327787}
   - component: {fileID: 8090460605155181645}
+  - component: {fileID: 764049384708074065}
+  - component: {fileID: -7627783471906100826}
   m_Layer: 0
   m_Name: candy shop
   m_TagString: Car
@@ -81,8 +83,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2214222, y: 0.77957493, z: 0.58181494}
-  m_Center: {x: 0.0100746155, y: 0.015305251, z: 0.0044487417}
+  m_Size: {x: 0.2214222, y: 0.76783645, z: 0.58181494}
+  m_Center: {x: 0.0100746155, y: 0.021174505, z: 0.0044487417}
 --- !u!54 &1774427905165327787
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -119,6 +121,55 @@ MonoBehaviour:
   steeringWheels:
   - {fileID: 1113763147445102122}
   - {fileID: 4523853929816385735}
+--- !u!33 &764049384708074065
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289082859757472508}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &-7627783471906100826
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289082859757472508}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9254cb58b3b475a48992653b8fb7206c, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1722995153922361196
 GameObject:
   m_ObjectHideFlags: 0

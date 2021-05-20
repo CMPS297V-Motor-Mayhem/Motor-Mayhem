@@ -7,12 +7,13 @@ public class CarsSpawner : MonoBehaviour
     // settings:
     [Header("AI Settings")]
     public int numberOfAICars = 10;
-    public RuntimeAnimatorController aiCarAnimatorController;
+    public RuntimeAnimatorController aiCarFSM;
 
     [Header("Spawning Settings")]
     public float distanceFromCenterToSpawn = 3.0f;
     public Transform platformCenter;
     public bool spawnRandomly = false;
+    public Cinemachine.CinemachineVirtualCamera cm;
 
     // helper variables:
     private List<GameObject> carsList;
@@ -114,6 +115,9 @@ public class CarsSpawner : MonoBehaviour
 
         // attach player components:
         AttachPlayerCarComponents(spawnedPlayerCar);
+
+        // make cinemachine camera follow player:
+        SetCMTarget(spawnedPlayerCar.transform);
     }
 
     private void SpawnAICars(List<Vector3> positions)
@@ -154,6 +158,12 @@ public class CarsSpawner : MonoBehaviour
 
         // add FSM:
         Animator fsm = aiCar.AddComponent<Animator>();
-        fsm.runtimeAnimatorController = this.aiCarAnimatorController;
+        fsm.runtimeAnimatorController = this.aiCarFSM;
+    }
+
+    private void SetCMTarget(Transform target)
+    {
+        cm.Follow = target;
+        cm.LookAt = target;
     }
 }

@@ -91,7 +91,7 @@ public class UIManager : MonoBehaviour
         // load main scene:
         SceneManager.LoadScene("SampleScene");
     }
-    
+
     public void OnBackClick()
     {
         // set camera animation parameter:
@@ -100,17 +100,17 @@ public class UIManager : MonoBehaviour
         // hide pick car menu
         if (pickCarMenu.gameObject.activeSelf)
             pickCarMenu.gameObject.SetActive(false);
-        
+
         // hide about menu
         if (aboutMenu.gameObject.activeSelf)
-            aboutMenu.gameObject.SetActive(false); 
+            aboutMenu.gameObject.SetActive(false);
 
         // display main menu:
         mainMenu.gameObject.SetActive(true);
     }
 
     // helper functions:
-    
+
     private void SpawnCar()
     {
         // find target car from the list:
@@ -130,6 +130,6 @@ public class UIManager : MonoBehaviour
         this.spawnedCar.transform.rotation = spawningTransform.rotation;
 
         // adjust Y position of spawned car:
-        Helpers.AdjustYPosition(spawnedCar, 0.0f);
+        Helpers.AdjustYPosition(this.spawnedCar, 0.0f);
     }
 }

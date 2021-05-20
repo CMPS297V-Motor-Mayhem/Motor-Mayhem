@@ -605,10 +605,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10139d0111b6c8f43b1add5717929d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfAICars: 10
+  numberOfAICars: 1
+  aiCarFSM: {fileID: 9100000, guid: abcf2fccc5abf5045acdf48563ec2ada, type: 2}
   distanceFromCenterToSpawn: 3
   platformCenter: {fileID: 620119786}
   spawnRandomly: 0
+  cm: {fileID: 297848114}
 --- !u!4 &121431072
 Transform:
   m_ObjectHideFlags: 0
