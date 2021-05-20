@@ -118,6 +118,9 @@ public class CarsSpawner : MonoBehaviour
 
         // make cinemachine camera follow player:
         SetCMTarget(spawnedPlayerCar.transform);
+
+        // name player:
+        spawnedPlayerCar.name = "CarPlayer";
     }
 
     private void SpawnAICars(List<Vector3> positions)
