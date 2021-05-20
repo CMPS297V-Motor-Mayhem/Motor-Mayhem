@@ -3975,7 +3975,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -5816,6 +5816,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2044864758, guid: 6735df75a9bb0194b8396d88ae1e641e, type: 3}
+      propertyPath: fieldOfView
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044864758, guid: 6735df75a9bb0194b8396d88ae1e641e, type: 3}
+      propertyPath: viewDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 30820678985064772, guid: 6735df75a9bb0194b8396d88ae1e641e, type: 3}
       propertyPath: m_RootOrder
       value: 4

@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class AIBehaviors : MonoBehaviour
 {
-    public float rayDistance = 4.0f;
-    public float distanceToBoost = 2.0f;
-    [HideInInspector] public bool isWandering = false;
+    // settings:
+    public float radiusToShield = 4.0f; // the radius from the platform's center as of which the AI car uses shield
+    public float distanceToBoost = 0.5f;
 
     // helper variables:
-    GameObject nearestCar = null;
+    [HideInInspector] public bool isWandering = false;
+    [HideInInspector] public bool hasReachedTarget = false;
+    private GameObject nearestCar = null;
+
+    // component variables:
     private Animator animator;
     private Abilities abilities;
 
     private void Start()
     {
+        // initialize components:
         animator = this.gameObject.GetComponent<Animator>();
         abilities = this.gameObject.GetComponent<Abilities>();
 
-        //initialize the boost and shield to ready
+        // initialize the boost and shield to ready:
         animator.SetBool("shieldReady", true);
         animator.SetBool("boostReady", true);
 
@@ -28,42 +33,61 @@ public class AIBehaviors : MonoBehaviour
 
     private void Update()
     {
+        CheckSpottedEnemy();
         CheckCloseToEnemy();
         CheckCloseToEdge();
     }
 
     // Helper functions:
 
+    private void CheckSpottedEnemy()
+    {
+        // set FSM state:
+        bool expression = !(nearestCar == null);
+        animator.SetBool("seesEnemy", expression);
+    }
+
     private void CheckCloseToEnemy()
     {
         // if there's no nearest car yet, simply return
         if (nearestCar == null)
+        {
+            animator.SetBool("enemyCloseEnough", false);
             return;
+        }
 
+        // compute distance from current car to enemy:
         float distance = Vector3.Distance(transform.position, this.nearestCar.transform.position);
+        //Debug.Log(distance);
 
-        if (distance < this.distanceToBoost)
-            animator.SetBool("seesEnemy", true);
-        else
-            animator.SetBool("seesEnemy", false);
+        bool expression = (distance < this.distanceToBoost);
+        animator.SetBool("enemyCloseEnough", expression);
     }
 
     private void CheckCloseToEdge()
     {
         //Check if the agent is close to the edge
-        Vector3 origin = Vector3.zero;
+        Vector3 origin = new Vector3(0, 2.25f, 0);
         float distance = Vector3.Distance(transform.position, origin);
 
-        if (distance > rayDistance)
-            animator.SetBool("close2Edge", true);
-        else
-            animator.SetBool("close2Edge", false);
+        bool expression = (distance > radiusToShield);
+        animator.SetBool("close2Edge", expression);
     }
 
     public void startWander()
     {
         StartCoroutine(wander());
     }
+
+    public void StartDriveTowardsEnemy()
+    {
+        if (this.nearestCar == null)
+            return;
+
+        Vector3 enemyPos = this.nearestCar.transform.position;
+        StartCoroutine(DriveTowardsTarget(enemyPos));
+    }
+    
 
     public void startActivateShield()
     {
@@ -73,17 +97,6 @@ public class AIBehaviors : MonoBehaviour
     public void StartActivateBoost()
     {
         StartCoroutine(ActivateBoost());
-    }
-
-    private IEnumerator ActivateBoost()
-    {
-        transform.LookAt(this.nearestCar.transform);
-        animator.SetBool("boostReady", false);
-        abilities.Boost();
-
-        // cooldown:
-        yield return new WaitForSeconds(abilities.boostCooldown);
-        animator.SetBool("boostReady", true);
     }
 
     private IEnumerator wander()
@@ -101,6 +114,16 @@ public class AIBehaviors : MonoBehaviour
         isWandering = false;
     }
 
+    private IEnumerator ActivateBoost()
+    {
+        animator.SetBool("boostReady", false);
+        abilities.Boost();
+
+        // cooldown:
+        yield return new WaitForSeconds(abilities.boostCooldown);
+        animator.SetBool("boostReady", true);
+    }
+
     public IEnumerator activateShield()
     {
         animator.SetBool("shieldReady", false);
@@ -109,27 +132,29 @@ public class AIBehaviors : MonoBehaviour
         // shield:
         StartCoroutine(abilities.Shield());
         yield return new WaitForSeconds(abilities.shieldDuration);
-        animator.SetBool("shieldReady", true);
 
         // cooldown:
         yield return new WaitForSeconds(abilities.shieldCooldown);
+        animator.SetBool("shieldReady", true);
     }
 
     private IEnumerator DriveTowardsTarget(Vector3 target)
     {
-        while (Vector3.Distance(transform.position, target) > 1.0f)
+        hasReachedTarget = false;
+        while (Vector3.Distance(transform.position, target) > 0.1f)
         {
             transform.LookAt(target);
             transform.position += transform.forward * Time.deltaTime * 2f;
             yield return null;
         }
+        hasReachedTarget = true;
     }
 
     // Event Handler:
 
     private void HandleDeterminedClosestCarEvent(GameObject nearestCar)
-    {
+    {   
+        // store nearest car:
         this.nearestCar = nearestCar;
-        DriveTowardsTarget(nearestCar.transform.position);
     }
 }
