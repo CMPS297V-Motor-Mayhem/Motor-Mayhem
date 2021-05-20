@@ -283,14 +283,14 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2716792024240647006}
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.06
+  m_Radius: 0.04
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
     targetPosition: 0.5
   m_SuspensionDistance: 0
   m_ForceAppPointDistance: 0
-  m_Mass: 10
+  m_Mass: 7
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
@@ -464,6 +464,7 @@ GameObject:
   - component: {fileID: -473087536025667578}
   - component: {fileID: -3561401143588169109}
   - component: {fileID: -1341067309268271821}
+  - component: {fileID: 8943593580234483225}
   m_Layer: 0
   m_Name: wood truck
   m_TagString: Car
@@ -545,6 +546,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &8943593580234483225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6316676241449981047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a47af7e860bafc42be64f427245e6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throttleWheels:
+  - {fileID: 613832148844927805}
+  - {fileID: 2395210756473632395}
+  - {fileID: 3732618024124517670}
+  - {fileID: 6387729977746643299}
+  steeringWheels:
+  - {fileID: 613832148844927805}
+  - {fileID: 3732618024124517670}
 --- !u!1 &7425169916941024075
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,14 +656,14 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7425169916941024075}
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.06
+  m_Radius: 0.04
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
     targetPosition: 0.5
   m_SuspensionDistance: 0
   m_ForceAppPointDistance: 0
-  m_Mass: 10
+  m_Mass: 7
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4

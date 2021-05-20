@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: -5748514857075440007}
   - component: {fileID: -1646463118372412939}
   - component: {fileID: 9124191939290107035}
+  - component: {fileID: 3352270177210160490}
   m_Layer: 0
   m_Name: cute car 2
   m_TagString: Car
@@ -399,6 +400,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &3352270177210160490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940929424334469018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a47af7e860bafc42be64f427245e6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throttleWheels:
+  - {fileID: 5272155637166433916}
+  - {fileID: 6890195241507291306}
+  - {fileID: 7042817095965922712}
+  - {fileID: 4543601027761925652}
+  steeringWheels:
+  - {fileID: 6890195241507291306}
+  - {fileID: 4543601027761925652}
 --- !u!1 &2325984052041473074
 GameObject:
   m_ObjectHideFlags: 0

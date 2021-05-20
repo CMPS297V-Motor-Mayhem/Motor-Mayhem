@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -1469666140518822343}
   - component: {fileID: 3712022407004782558}
   - component: {fileID: 1774427905165327787}
+  - component: {fileID: 8090460605155181645}
   m_Layer: 0
   m_Name: candy shop
   m_TagString: Car
@@ -98,6 +99,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &8090460605155181645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289082859757472508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a47af7e860bafc42be64f427245e6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throttleWheels:
+  - {fileID: 7071909325363337441}
+  - {fileID: 1113763147445102122}
+  - {fileID: 4523853929816385735}
+  - {fileID: 7972506270632505470}
+  steeringWheels:
+  - {fileID: 1113763147445102122}
+  - {fileID: 4523853929816385735}
 --- !u!1 &1722995153922361196
 GameObject:
   m_ObjectHideFlags: 0

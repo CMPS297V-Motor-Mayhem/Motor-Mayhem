@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 2150927825015192377}
   - component: {fileID: -2578899414916104873}
   - component: {fileID: 2423097714145879297}
+  - component: {fileID: 8850864656756610964}
   m_Layer: 0
   m_Name: taxi
   m_TagString: Car
@@ -206,6 +207,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &8850864656756610964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683949385939134012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a47af7e860bafc42be64f427245e6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throttleWheels:
+  - {fileID: 302796957920542395}
+  - {fileID: 5788976719810015545}
+  - {fileID: 6872505925488602891}
+  - {fileID: 4696282132847901522}
+  steeringWheels:
+  - {fileID: 302796957920542395}
+  - {fileID: 4696282132847901522}
 --- !u!1 &2394698587713911041
 GameObject:
   m_ObjectHideFlags: 0

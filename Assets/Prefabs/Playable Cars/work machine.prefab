@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 5498069213720310113}
   - component: {fileID: 8993193987888263551}
   - component: {fileID: -411878290059969361}
+  - component: {fileID: 829272769750769490}
   m_Layer: 0
   m_Name: work machine
   m_TagString: Car
@@ -289,6 +290,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &829272769750769490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046394142770152249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a47af7e860bafc42be64f427245e6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throttleWheels:
+  - {fileID: 4539582688301772}
+  - {fileID: 5573783978933168527}
+  steeringWheels:
+  - {fileID: 4539582688301772}
+  - {fileID: 5573783978933168527}
 --- !u!1 &3771079496403988617
 GameObject:
   m_ObjectHideFlags: 0

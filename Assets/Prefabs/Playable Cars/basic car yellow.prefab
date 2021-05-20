@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 3998063806632637514}
   - component: {fileID: -7230429007440311563}
   - component: {fileID: 1247738098397309831}
+  - component: {fileID: 1379765257381261747}
   m_Layer: 0
   m_Name: basic car yellow
   m_TagString: Car
@@ -206,6 +207,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1379765257381261747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305453623721215208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a47af7e860bafc42be64f427245e6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throttleWheels:
+  - {fileID: 5655979081542436837}
+  - {fileID: 1175886360162861430}
+  - {fileID: 2838647928006054886}
+  - {fileID: 3732695383873368594}
+  steeringWheels:
+  - {fileID: 5655979081542436837}
+  - {fileID: 2838647928006054886}
 --- !u!1 &1590863865223051198
 GameObject:
   m_ObjectHideFlags: 0

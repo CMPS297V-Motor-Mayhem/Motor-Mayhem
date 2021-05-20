@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 139975331257393098}
   - component: {fileID: 2552899736327697790}
   - component: {fileID: -6029620629430069687}
+  - component: {fileID: 8630894213672670711}
   m_Layer: 0
   m_Name: monster truck
   m_TagString: Car
@@ -256,6 +257,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &8630894213672670711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108773864450636540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a47af7e860bafc42be64f427245e6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throttleWheels:
+  - {fileID: 3232249940091780832}
+  - {fileID: 563476900959980975}
+  - {fileID: 9144423068670079190}
+  - {fileID: 7121687715543191102}
+  steeringWheels:
+  - {fileID: 3232249940091780832}
+  - {fileID: 563476900959980975}
 --- !u!1 &2287874757170218280
 GameObject:
   m_ObjectHideFlags: 0
