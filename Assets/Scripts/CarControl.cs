@@ -65,7 +65,7 @@ public class CarControl : MonoBehaviour
     {
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)) && Time.time > BoostcdTime)
         {
-            abilities.Boost();
+            StartCoroutine(abilities.Boost());
             BoostcdTime = Time.time + cd;
             //StartCoroutine(gameUIManager.DisplayAbilityCooldown(gameUIManager.boostUIImage, 5, Ability.Boost));
             GameEvents.BoostEvent.Invoke(abilities.boostCooldown);
