@@ -16,13 +16,18 @@ public class CarControl : MonoBehaviour
     private float SheildcdTime = 0.0f;
     private float cd = 5.0f;
     
-    private GameUIManager gameUIManager;
+    // component variables:
     private Abilities abilities;
+    private WheelCollidersInfo info;
 
     private void Start()
     {
-        gameUIManager = GameObject.Find("UIManager").GetComponent<GameUIManager>();
+        // initialize components variables:
         abilities = GetComponent<Abilities>();
+        info = GetComponent<WheelCollidersInfo>();
+
+        // get wheel colliders info:
+        GetWheelColliders();
     }
 
     private void FixedUpdate()
@@ -31,6 +36,12 @@ public class CarControl : MonoBehaviour
     }
 
     // Helper Function:
+
+    private void GetWheelColliders()
+    {
+        this.throttleWheels = info.throttleWheels;
+        this.steeringWheels = info.steeringWheels;
+    }
 
     private void HandleInput()
     {
@@ -67,7 +78,6 @@ public class CarControl : MonoBehaviour
         {
             StartCoroutine(abilities.Boost());
             BoostcdTime = Time.time + cd;
-            //StartCoroutine(gameUIManager.DisplayAbilityCooldown(gameUIManager.boostUIImage, 5, Ability.Boost));
             GameEvents.BoostEvent.Invoke(abilities.boostCooldown);
         }
     }
@@ -78,7 +88,6 @@ public class CarControl : MonoBehaviour
         {
             StartCoroutine(abilities.Shield());
             SheildcdTime = Time.time + cd;
-            //StartCoroutine(gameUIManager.DisplayAbilityCooldown(gameUIManager.shieldUIImage, 5, Ability.Shield));
             GameEvents.ShieldEvent.Invoke(abilities.shieldDuration);
         }
     }

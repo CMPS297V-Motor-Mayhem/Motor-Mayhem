@@ -6,11 +6,16 @@ public class Helpers : MonoBehaviour
 {
     public static Bounds GetTotalBounds(GameObject obj)
     {
-        Bounds totalBounds = new Bounds();
+        // initialization:
+        Vector3 center = obj.transform.position;
+        Vector3 size = Vector3.zero;
+        Bounds totalBounds = new Bounds(center, size);
+
         Renderer renderer = obj.GetComponent<Renderer>();
 
-        if (renderer != null)
+        if (renderer != null && !renderer.material.name.Equals("Shield (Instance)"))
         {
+            // if this is the shield mesh, don't count it in the bounds:
             totalBounds.Encapsulate(renderer.bounds);
         }
 
@@ -31,5 +36,19 @@ public class Helpers : MonoBehaviour
         }
 
         return totalBounds;
+    }
+
+    public static void AdjustYPosition(GameObject car, float groundHeight)
+    {
+        // get car height:
+        Bounds carBounds = Helpers.GetTotalBounds(car);
+        float carHeight = carBounds.size.y;
+        
+        // find new position after adjustement:
+        Vector3 adjustedPosition = car.transform.position;
+        adjustedPosition.y = groundHeight + carHeight / 2;
+
+        // update position:
+        car.transform.position = adjustedPosition;
     }
 }
