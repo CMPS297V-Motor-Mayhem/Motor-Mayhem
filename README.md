@@ -23,7 +23,7 @@ A small game project for the AUB CMPS 297V course
 - Unity Version 2020.3.6f1
 
 ## Proposal
-![Project Proposal](/Picures/proposal-pic.png)
+![Project Proposal](/Pictures/proposal-pic.png)
 
 ## Report
 
