@@ -130,6 +130,6 @@ public class UIManager : MonoBehaviour
         this.spawnedCar.transform.rotation = spawningTransform.rotation;
 
         // adjust Y position of spawned car:
-        Helpers.AdjustYPosition(this.spawnedCar, 0.0f);
+        Helpers.AdjustYPosition(this.spawnedCar, 0.05f);
     }
 }
