@@ -17,15 +17,18 @@ public class GameUIManager : MonoBehaviour
 
     [Header("UI Settings")]
     public Text scoreValueTxt;
+
     public Text remainingCarsValueTxt;
     public Text carsKnockedOutValueTxt;
 
     [Header("Abilities Settings")]
     public Image boostUIImage;
+
     public Image shieldUIImage;
 
     [Header("Game Over Menu Settings")]
     public Canvas gameOverMenu;
+
     public Text gameOverTitle;
     public List<Image> dividers;
     public List<Button> buttons;
@@ -39,6 +42,7 @@ public class GameUIManager : MonoBehaviour
 
     // helper variables:
     private int knockedOffCars;
+
     private bool isBoosted;
     private bool isShielded;
 
@@ -71,7 +75,7 @@ public class GameUIManager : MonoBehaviour
     {
         // hide game UI menu:
         this.gameUiMenu.gameObject.SetActive(false);
-        
+
         // update best score:
         BestScoreManager.SaveBestScore(score);
 
@@ -87,6 +91,9 @@ public class GameUIManager : MonoBehaviour
 
         // color objects accordingly:
         this.ColorGameOverMenuItems(this.winColor);
+
+        // play game win sfx
+        SFXEvents.SFXGameWinEvent();
     }
 
     private void HandleGameLoseEvent()
@@ -109,6 +116,9 @@ public class GameUIManager : MonoBehaviour
 
         // color objects accordingly:
         this.ColorGameOverMenuItems(this.loseColor);
+
+        // play game lose sfx
+        SFXEvents.SFXGameLoseEvent();
     }
 
     private void HandlePauseEvent()
@@ -246,13 +256,14 @@ public class GameUIManager : MonoBehaviour
             case Ability.Boost:
                 isBoosted = true;
                 break;
+
             case Ability.Shield:
                 isShielded = true;
                 break;
         }
 
         float elapsedTime = 0.0f;
-        while(elapsedTime < cooldownDuration)
+        while (elapsedTime < cooldownDuration)
         {
             img.fillAmount = elapsedTime / cooldownDuration;
             yield return new WaitForEndOfFrame();
@@ -265,6 +276,7 @@ public class GameUIManager : MonoBehaviour
             case Ability.Boost:
                 isBoosted = false;
                 break;
+
             case Ability.Shield:
                 isShielded = false;
                 break;

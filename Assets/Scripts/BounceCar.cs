@@ -14,13 +14,14 @@ public class BounceCar : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // simulate the bouciness effect:
-        if (!collision.gameObject.CompareTag("Ground"))
+        if (!collision.gameObject.CompareTag("Ground") && !collision.gameObject.name.Equals("Out Zone"))
         {
             float impactForce = collision.impulse.magnitude;
             Vector3 normal = collision.contacts[0].normal;
             Debug.DrawRay(this.transform.position, normal, Color.red, 100);
             //rb.AddForce(normal * impactForce * this.bouncinessForce, ForceMode.VelocityChange);
             rb.AddForce(normal * this.bouncinessForce, ForceMode.VelocityChange);
+            SFXEvents.SFXBounceEvent(collision.gameObject); //play bounce sfx
         }
         
     }
