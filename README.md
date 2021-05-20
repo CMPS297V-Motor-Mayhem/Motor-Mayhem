@@ -5,6 +5,8 @@ A small game project for the AUB CMPS 297V course
 - [Technologies](#technologies)
 - [Proposal](#proposal)
 - [Report](#report)
+  * [Major Components](#major-components)
+  * [Algorithms](#algorithms)
 - [Tutorials](#tutorials)
   * [Set up unity and github for development](#set-up-unity-and-github-for-development)
   * [Use github project, issues, pull requests](#use-github-project--issues--pull-requests)
@@ -30,10 +32,19 @@ A small game project for the AUB CMPS 297V course
 ### Major Components
 
 - Car Prefabs
+  * Since our game can have multiple instances of the same car we decided to utilize prefabs
 - AI FSM
+  * The game calls for AI agents that have multiple states (patrolling/driving towards other cars/boosting into other cars/shielding itself) hence it was necessary to use a Finite State Machine
 - Game State FSM
+  * The game goes throught multiple stages (start/pause/lose/win) and using another Finite State Machine makes the task much easier
 - Cooldowns using coroutines
+  * Cooldowns for Boosting and Shielding were necessary but we still wanted the cars to move around so Coroutines were needed, especially their WaitForSeconds() method
 - Bounciness made using physics (adding force to rigidbodies)
+  * We made use of Unity's physics system to create a bouncy effect whenever a car would hit anything
+
+### Algorithms
+
+- AI Agent Sense: we send rays from each car towards all the others, we then check if the angle between that ray and the transform.forward ray is within the specified field of view. If so then the agent has "detected" a car
 
 ## Tutorials
 
