@@ -59,6 +59,7 @@ public class GameUIManager : MonoBehaviour
 
     private void Update()
     {
+        GetScore();
         // update UI every frame:
         UpdateScoreUI();
         UpdateCarsRemainingUI();
@@ -216,6 +217,12 @@ public class GameUIManager : MonoBehaviour
         {
             btn.GetComponent<Image>().color = color;
         }
+    }
+
+    private void GetScore()
+    {
+        ScoreCounter scoreCounter = ScoreCounter.Instance;
+        this.score = scoreCounter.Score;
     }
 
     private void UpdateScoreUI()
