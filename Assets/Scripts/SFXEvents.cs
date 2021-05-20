@@ -43,6 +43,8 @@ public class SFXEvents : MonoBehaviour
 
         //reference to gameobject
         SFXEventsGameObject = SFXEventsGameObjectInput;
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     public static void SFXBoostEvent(GameObject emitter)
