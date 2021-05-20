@@ -9,9 +9,6 @@ public class DriveTowardsEnemyState : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        // logging:
-        Debug.Log("Entered Drive Towards Enemy State: " + animator.gameObject.name);
-
         aiCar = animator.gameObject.GetComponent<AIBehaviors>();
         aiCar.StartDriveTowardsEnemy();
     }

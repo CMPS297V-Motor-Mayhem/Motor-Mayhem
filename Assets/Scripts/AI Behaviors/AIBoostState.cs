@@ -9,9 +9,6 @@ public class AIBoostState : StateMachineBehaviour
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        // logging:
-        Debug.Log("Entered Boost State: " + animator.gameObject.name);
-
         aiCar = animator.gameObject.GetComponent<AIBehaviors>();
         aiCar.StartActivateBoost();
     }

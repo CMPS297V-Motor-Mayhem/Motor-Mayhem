@@ -6,7 +6,6 @@ public class AIPatrolState : StateMachineBehaviour
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("Entered Patrol State: " + animator.gameObject.name);
         car = animator.gameObject.GetComponent<AIBehaviors>();
     }
 

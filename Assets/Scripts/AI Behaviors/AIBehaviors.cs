@@ -141,7 +141,7 @@ public class AIBehaviors : MonoBehaviour
     private IEnumerator DriveTowardsTarget(Vector3 target)
     {
         hasReachedTarget = false;
-        while (Vector3.Distance(transform.position, target) > 0.1f)
+        while (Vector3.Distance(transform.position, target) > 0.5f)
         {
             transform.LookAt(target);
             transform.position += transform.forward * Time.deltaTime * 2f;
