@@ -50,7 +50,8 @@ public class SFXEvents : MonoBehaviour
     public static void SFXBoostEvent(GameObject emitter)
     {
         //get audio source from the game object
-        AudioSource source = emitter.GetComponent<AudioSource>();
+        AudioSource source = emitter.GetComponent<AudioSource>(); 
+        source.volume = 0.5f;
 
         //Select random clip
         source.clip = BoostSFXs[(int)Random.Range(0, BoostSFXs.Count - 1)];
@@ -60,7 +61,8 @@ public class SFXEvents : MonoBehaviour
     public static void SFXShieldEvent(GameObject emitter)
     {
         //get audio source from the game object
-        AudioSource source = emitter.GetComponent<AudioSource>();
+        AudioSource source = emitter.GetComponent<AudioSource>(); 
+        source.volume = 0.8f;
 
         //Select random clip
         source.clip = ShieldSFXs[(int)Random.Range(0, ShieldSFXs.Count - 1)];
@@ -70,7 +72,8 @@ public class SFXEvents : MonoBehaviour
     public static void SFXHornEvent(GameObject emitter)
     {
         //get audio source from the game object
-        AudioSource source = emitter.GetComponent<AudioSource>();
+        AudioSource source = emitter.GetComponent<AudioSource>(); 
+        source.volume = 0.5f;
 
         //Select random clip
         source.clip = HornSFXs[(int)Random.Range(0, HornSFXs.Count - 1)];
@@ -81,6 +84,7 @@ public class SFXEvents : MonoBehaviour
     {
         //get audio source from the game object
         AudioSource source = emitter.GetComponent<AudioSource>();
+        source.volume = 0.25f;
 
         //Select random clip
         source.clip = BounceSFXs[(int)Random.Range(0, BounceSFXs.Count - 1)];
@@ -90,7 +94,8 @@ public class SFXEvents : MonoBehaviour
     public static void SFXCarFallEvent()
     {
         //get audio source from the game object
-        AudioSource source = SFXEventsGameObject.AddComponent<AudioSource>();
+        AudioSource source = SFXEventsGameObject.AddComponent<AudioSource>(); 
+        source.volume = 0.5f;
 
         //Select random clip
         source.clip = CarFallSFXs[(int)Random.Range(0, CarFallSFXs.Count - 1)];
@@ -100,7 +105,8 @@ public class SFXEvents : MonoBehaviour
     public static void SFXGameStartEvent()
     {
         //get audio source from the game object
-        AudioSource source = SFXEventsGameObject.AddComponent<AudioSource>();
+        AudioSource source = SFXEventsGameObject.AddComponent<AudioSource>(); 
+        source.volume = 0.5f;
 
         //Select random clip
         source.clip = GameStartSFXs[(int)Random.Range(0, GameStartSFXs.Count - 1)];
@@ -111,7 +117,8 @@ public class SFXEvents : MonoBehaviour
     {
         //get audio source from the game object
 
-        AudioSource source = SFXEventsGameObject.AddComponent<AudioSource>();
+        AudioSource source = SFXEventsGameObject.AddComponent<AudioSource>(); 
+        source.volume = 0.5f;
 
         //Select random clip
         source.clip = GameWinSFXs[(int)Random.Range(0, GameWinSFXs.Count - 1)];
@@ -124,7 +131,8 @@ public class SFXEvents : MonoBehaviour
     public static void SFXGameLoseEvent()
     {
         //get audio source from the game object
-        AudioSource source = SFXEventsGameObject.AddComponent<AudioSource>();
+        AudioSource source = SFXEventsGameObject.AddComponent<AudioSource>(); 
+        source.volume = 0.5f;
 
         //Select random clip
         source.clip = GameLoseSFXs[(int)Random.Range(0, GameLoseSFXs.Count - 1)];

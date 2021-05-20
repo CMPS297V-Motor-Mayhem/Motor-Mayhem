@@ -7,17 +7,19 @@ public class CarControl : MonoBehaviour
 {
     public long speed = 1500;
     public float maxRotationAngle = 15.0f;
-    
+
     public List<Collider> throttleWheels;
     public List<Collider> steeringWheels;
 
     // helper variables:
     private float BoostcdTime = 0.0f;
+
     private float SheildcdTime = 0.0f;
-    private float cd = 5.0f;
-    
+    private float cd = 10.0f;
+
     // component variables:
     private Abilities abilities;
+
     private WheelCollidersInfo info;
 
     private void Start()
@@ -49,6 +51,7 @@ public class CarControl : MonoBehaviour
         HandleSteerInput();
         HandleBoostInput();
         HandleShieldInput();
+        HandleHornInput();
     }
 
     private void HandleThrottleInput()
@@ -88,7 +91,15 @@ public class CarControl : MonoBehaviour
         {
             StartCoroutine(abilities.Shield());
             SheildcdTime = Time.time + cd;
-            GameEvents.ShieldEvent.Invoke(abilities.shieldDuration);
+            GameEvents.ShieldEvent.Invoke(abilities.shieldDuration + abilities.shieldCooldown);
+        }
+    }
+
+    private void HandleHornInput()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            SFXEvents.SFXHornEvent(this.gameObject);
         }
     }
 }
