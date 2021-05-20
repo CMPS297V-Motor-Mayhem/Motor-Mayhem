@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class OutOfBounds : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (!collision.gameObject.CompareTag("Map"))
+        if (!other.gameObject.CompareTag("Map"))
         {
             //Destroy any car that touches the lava
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
 
             //Lose Game if player falls off
-            if (collision.gameObject.name.Equals("CarPlayer"))
+            if (other.gameObject.name.Equals("CarPlayer"))
             {
                 //if the player dies -> Game over
                 GameEvents.GameLoseEvent.Invoke();
@@ -20,14 +20,6 @@ public class OutOfBounds : MonoBehaviour
             {
                 GameEvents.KnockedOffCarEvent.Invoke();
             }
-        }
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        if (!collision.gameObject.CompareTag("Map"))
-        {
-            Destroy(collision.gameObject);
         }
     }
 }
