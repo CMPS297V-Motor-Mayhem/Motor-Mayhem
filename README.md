@@ -3,6 +3,7 @@ A small game project for the AUB CMPS 297V course
 
 - [Authors](#authors)
 - [Technologies](#technologies)
+- [Proposal](#proposal)
 - [Report](#report)
 - [Tutorials](#tutorials)
   * [Set up unity and github for development](#set-up-unity-and-github-for-development)
@@ -20,6 +21,9 @@ A small game project for the AUB CMPS 297V course
 ## Technologies
 
 - Unity Version 2020.3.6f1
+
+## Proposal
+![Project Proposal](/Picures/proposal-pic.png)
 
 ## Report
 
