@@ -7,6 +7,9 @@ public class CarsSpawner : MonoBehaviour
     // settings:
     [Header("AI Settings")]
     public int numberOfAICars = 10;
+    public RuntimeAnimatorController aiCarAnimatorController;
+
+    [Header("Spawning Settings")]
     public float distanceFromCenterToSpawn = 3.0f;
     public Transform platformCenter;
     public bool spawnRandomly = false;
@@ -108,6 +111,9 @@ public class CarsSpawner : MonoBehaviour
         // adjust Y position:
         float platformHeight = this.platformCenter.position.y;
         Helpers.AdjustYPosition(spawnedPlayerCar, platformHeight);
+
+        // attach player components:
+        AttachPlayerCarComponents(spawnedPlayerCar);
     }
 
     private void SpawnAICars(List<Vector3> positions)
@@ -128,6 +134,26 @@ public class CarsSpawner : MonoBehaviour
             // adjust Y position:
             float platformHeight = this.platformCenter.position.y;
             Helpers.AdjustYPosition(spawnedAiCar, platformHeight);
+
+            // attach AI components:
+            AttachAICarComponents(spawnedAiCar);
         }
+    }
+
+    private void AttachPlayerCarComponents(GameObject playerCar)
+    {
+        // add scripts:
+        playerCar.AddComponent<CarControl>();
+    }
+
+    private void AttachAICarComponents(GameObject aiCar)
+    {
+        // add scripts:
+        aiCar.AddComponent<AIBehaviors>();
+        aiCar.AddComponent<AIPerspective>();
+
+        // add FSM:
+        Animator fsm = aiCar.AddComponent<Animator>();
+        fsm.runtimeAnimatorController = this.aiCarAnimatorController;
     }
 }
