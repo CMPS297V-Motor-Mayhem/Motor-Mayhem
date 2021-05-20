@@ -2,10 +2,11 @@
 A small game project for the AUB CMPS 297V course
 
 - [Authors](#authors)
+- [Technologies](#technologies)
+- [Report](#report)
 - [Tutorials](#tutorials)
   * [Set up unity and github for development](#set-up-unity-and-github-for-development)
   * [Use github project, issues, pull requests](#use-github-project--issues--pull-requests)
-- [Technologies](#technologies)
 - [Resources Used](#resources-used)
   * [Assets](#assets)
   * [Sounds](#sounds)
@@ -15,6 +16,20 @@ A small game project for the AUB CMPS 297V course
 - Marwan Bassam
 - Dhia Eddine Nini
 - Hadi Hachem
+
+## Technologies
+
+- Unity Version 2020.3.6f1
+
+## Report
+
+### Major Components
+
+- Car Prefabs
+- AI FSM
+- Game State FSM
+- Cooldowns using coroutines
+- Bounciness made using physics (adding force to rigidbodies)
 
 ## Tutorials
 
@@ -47,10 +62,6 @@ When done with an issue:
 - Go to the corresponding issue and assign the pull request you just made
 - If you are an admin, accept the pull request and the branches should merge
 - Close the issue and move it to done in the project
-
-## Technologies
-
-- Unity Version 2020.3.6f1
 
 ## Resources Used
 
